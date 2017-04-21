@@ -1,6 +1,6 @@
-package io.github.sihenzhang.cursedlasso;
+package io.github.seraphjack.enderclay;
 
-import io.github.sihenzhang.cursedlasso.item.ItemLoader;
+import io.github.seraphjack.enderclay.item.ItemLoader;
 
 public class CommonProxy {
 

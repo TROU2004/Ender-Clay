@@ -1,6 +1,5 @@
-package io.github.sihenzhang.cursedlasso.item;
+package io.github.seraphjack.enderclay.item;
 
-import com.typesafe.config.ConfigException;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -27,8 +26,8 @@ import java.util.List;
 public class ItemCursedLasso extends Item {
     public ItemCursedLasso() {
         setCreativeTab(CreativeTabs.tabTools);
-        setUnlocalizedName("cursedlasso.cursed_lasso");
-        setTextureName("cursedlasso:cursed_lasso");
+        setUnlocalizedName("enderclay.cursed_lasso");
+        setTextureName("enderclay:cursed_lasso");
         setMaxStackSize(1);
     }
 

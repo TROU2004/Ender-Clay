@@ -1,14 +1,14 @@
 [
 {
-  "modid": "cursedlasso",
-  "name": "CursedLasso",
+  "modid": "enderclay",
+  "name": "EnderClay",
   "description": "A Minecraft Mod that add CursedLasso in 1.7.10",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["SihenZhang"],
-  "credits": "By 3TUSK & SeraphJACK, with the help of many",
+  "authorList": ["SeraphJACK"],
+  "credits": "Uses codes from SihenZhang",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

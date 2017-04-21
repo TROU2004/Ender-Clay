@@ -1,4 +1,4 @@
-package io.github.sihenzhang.cursedlasso;
+package io.github.seraphjack.enderclay;
 
 public class ClientProxy extends CommonProxy {
     @Override

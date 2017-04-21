@@ -1,13 +1,13 @@
-package io.github.sihenzhang.cursedlasso;
+package io.github.seraphjack.enderclay;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "cursedlasso", name = "CursedLasso", version = "1.0.3")
-public class CursedLasso {
-    @SidedProxy(clientSide="io.github.sihenzhang.cursedlasso.ClientProxy",serverSide="io.github.sihenzhang.cursedlasso.CommonProxy")
+@Mod(modid = "enderclay", name = "EnderClay", version = "1.0.0")
+public class EnderClay {
+    @SidedProxy(clientSide="ClientProxy",serverSide="CommonProxy")
     static public CommonProxy proxy;
 
     @Mod.EventHandler
