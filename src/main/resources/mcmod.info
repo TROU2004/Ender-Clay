@@ -2,7 +2,7 @@
 {
   "modid": "enderclay",
   "name": "EnderClay",
-  "description": "A Minecraft Mod that add CursedLasso in 1.7.10",
+  "description": "A Minecraft Mod that add CursedLasso&EnderClay in 1.7.10",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",

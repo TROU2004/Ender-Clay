@@ -63,6 +63,6 @@ processResources
 }
 jar {
     manifest {
-       attributes 'FMLAT': 'cursedlasso_at.cfg'
+       attributes 'FMLAT': 'enderclay_at.cfg'
     }
 }

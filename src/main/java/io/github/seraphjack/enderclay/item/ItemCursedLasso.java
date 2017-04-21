@@ -14,6 +14,7 @@ import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -21,6 +22,8 @@ import net.minecraft.util.Facing;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
+import io.github.seraphjack.enderclay.block.BlockLoader;
+
 import java.util.List;
 
 public class ItemCursedLasso extends Item {
@@ -82,6 +85,13 @@ public class ItemCursedLasso extends Item {
         Entity entityToSpawn = EntityList.createEntityByName(entityId, world);
 
         Block blk = world.getBlock(x,y,z);
+        if(blk == Blocks.clay && item.hasTagCompound()){
+        	if(item.stackTagCompound.getCompoundTag("entity").getString("id") == "Enderman"){
+        	item.setTagCompound(null);
+        	world.setBlock(x, y, z, BlockLoader.BlockEnderClay);
+        	return true;
+        	}
+        }
         double spawnX = x + Facing.offsetsXForSide[facing] + 0.5;
         double spawnY = y + Facing.offsetsYForSide[facing];
         double spawnZ = z + Facing.offsetsZForSide[facing] + 0.5;
