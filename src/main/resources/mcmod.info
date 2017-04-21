@@ -1,0 +1,16 @@
+[
+{
+  "modid": "cursedlasso",
+  "name": "CursedLasso",
+  "description": "A Minecraft Mod that add CursedLasso in 1.7.10",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["SihenZhang"],
+  "credits": "By 3TUSK & SeraphJACK, with the help of many",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
