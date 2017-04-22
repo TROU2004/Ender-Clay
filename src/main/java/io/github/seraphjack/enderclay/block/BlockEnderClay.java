@@ -2,13 +2,19 @@ package io.github.seraphjack.enderclay.block;
 
 import io.github.seraphjack.enderclay.item.ItemLoader;
 
+import java.util.List;
 import java.util.Random;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 public class BlockEnderClay extends Block{
@@ -19,7 +25,8 @@ public class BlockEnderClay extends Block{
 		this.setBlockTextureName("enderclay:enderclayblock");
 		this.setCreativeTab(CreativeTabs.tabBlock);
 		this.setHardness(0.5F);
-		this.setStepSound(soundTypeCloth);
+		this.setStepSound(soundTypeGravel);
+		this.setHarvestLevel("shovel", 0);
 	}
 	
 	@Override
@@ -31,5 +38,4 @@ public class BlockEnderClay extends Block{
 	public int quantityDropped(Random p_149745_1_){
 		return 4;
 	}
-	
 }

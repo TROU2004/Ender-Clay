@@ -2,6 +2,7 @@ package io.github.seraphjack.enderclay.item;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 
 
 public class ItemLoader {

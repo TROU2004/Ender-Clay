@@ -1,3 +1,7 @@
 item.enderclay.cursed_lasso.name=诅咒套索
 tile.enderclay.enderclayblock.name=末影粘土块
 item.enderclay.enderclay.name=末影粘土
+item.enderclay.enderclay.display=来自 FTB Beyond 的平衡科技
+tile.enderclay.enderclayblock.display0=用捕捉了末影人的
+tile.enderclay.enderclayblock.display1=诅咒套索右击粘土块
+tile.enderclay.enderclayblock.display2=即可获得。
