@@ -5,7 +5,6 @@ import io.github.seraphjack.enderclay.item.ItemLoader;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import cpw.mods.fml.common.registry.GameRegistry;
-import net.minecraft.item.crafting.IRecipe;
 
 public class CraftingLoader {
 	public CraftingLoader(){
