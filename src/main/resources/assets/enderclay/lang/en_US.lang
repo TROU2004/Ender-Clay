@@ -5,3 +5,5 @@ item.enderclay.enderclay.display=A balance technology from FTB Beyond.
 tile.enderclay.enderclayblock.display0=To get this, right click on
 tile.enderclay.enderclayblock.display1=a Clay Block with a Cursed
 tile.enderclay.enderclayblock.display2=Lasso with a captured enderman.
+achievement.enderclay.balance=Balance!
+achievement.enderclay.balance.desc=Balance technology from FTB Beyond!

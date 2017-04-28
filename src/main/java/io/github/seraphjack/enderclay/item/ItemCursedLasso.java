@@ -2,6 +2,7 @@ package io.github.seraphjack.enderclay.item;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import io.github.seraphjack.enderclay.achievement.AchievementLoader;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.BlockWall;
@@ -89,6 +90,7 @@ public class ItemCursedLasso extends Item {
         	if(item.stackTagCompound.getCompoundTag("entity").getString("id") == "Enderman"){
         	item.setTagCompound(null);
         	world.setBlock(x, y, z, BlockLoader.BlockEnderClay);
+        	player.triggerAchievement(AchievementLoader.balance);
         	return true;
         	}
         }

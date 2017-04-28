@@ -21,12 +21,12 @@ public class BlockEnderClay extends Block{
 
 	public BlockEnderClay() {
 		super(Material.ground);
-		this.setBlockName("enderclay.enderclayblock");
-		this.setBlockTextureName("enderclay:enderclayblock");
-		this.setCreativeTab(CreativeTabs.tabBlock);
-		this.setHardness(0.5F);
-		this.setStepSound(soundTypeGravel);
-		this.setHarvestLevel("shovel", 0);
+		setBlockName("enderclay.enderclayblock");
+		setBlockTextureName("enderclay:enderclayblock");
+		setCreativeTab(CreativeTabs.tabBlock);
+		setHardness(0.5F);
+		setStepSound(soundTypeGravel);
+		setHarvestLevel("shovel", 0);
 	}
 	
 	@Override
