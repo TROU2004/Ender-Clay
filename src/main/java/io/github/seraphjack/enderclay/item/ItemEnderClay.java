@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 
 public class ItemEnderClay extends Item{
-	public ItemEnderClay(){
+	ItemEnderClay(){
 		setCreativeTab(CreativeTabs.tabMaterials);
         setUnlocalizedName("enderclay.enderclay");
         setTextureName("enderclay:enderclay");

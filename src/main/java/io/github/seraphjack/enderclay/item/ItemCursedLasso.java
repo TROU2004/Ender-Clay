@@ -28,7 +28,7 @@ import io.github.seraphjack.enderclay.block.BlockLoader;
 import java.util.List;
 
 public class ItemCursedLasso extends Item {
-    public ItemCursedLasso() {
+    ItemCursedLasso() {
         setCreativeTab(CreativeTabs.tabTools);
         setUnlocalizedName("enderclay.cursed_lasso");
         setTextureName("enderclay:cursed_lasso");
@@ -87,7 +87,7 @@ public class ItemCursedLasso extends Item {
 
         Block blk = world.getBlock(x,y,z);
         if(blk == Blocks.clay && item.hasTagCompound()){
-        	if(item.stackTagCompound.getCompoundTag("entity").getString("id") == "Enderman"){
+        	if(item.stackTagCompound.getCompoundTag("entity").getString("id").equals("Enderman")){
         	item.setTagCompound(null);
         	world.setBlock(x, y, z, BlockLoader.BlockEnderClay);
         	player.triggerAchievement(AchievementLoader.balance);
@@ -130,7 +130,7 @@ public class ItemCursedLasso extends Item {
         return true;
     }
 
-    public String getMobTypeFromStack(ItemStack item) {
+    private String getMobTypeFromStack(ItemStack item) {
         if(!item.hasTagCompound()) {
             return null;
         }
@@ -141,7 +141,7 @@ public class ItemCursedLasso extends Item {
 
     }
 
-    public static String getDisplayNameForEntity(String mobName) {
+    private static String getDisplayNameForEntity(String mobName) {
         return StatCollector.translateToLocal("entity." + mobName + ".name");
     }
 

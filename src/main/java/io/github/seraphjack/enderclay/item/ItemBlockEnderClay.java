@@ -2,6 +2,8 @@ package io.github.seraphjack.enderclay.item;
 
 import java.util.List;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import io.github.seraphjack.enderclay.block.BlockLoader;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,8 +16,9 @@ public class ItemBlockEnderClay extends ItemBlock{
 	public ItemBlockEnderClay(Block block) {
 		super(BlockLoader.BlockEnderClay);
 	}
-	
+
 	@Override
+	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack,EntityPlayer player,List list,boolean advanced){
 		list.add(StatCollector.translateToLocal("tile.enderclay.enderclayblock.display0"));
 		list.add(StatCollector.translateToLocal("tile.enderclay.enderclayblock.display1"));
