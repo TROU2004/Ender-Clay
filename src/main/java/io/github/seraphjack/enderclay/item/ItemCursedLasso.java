@@ -83,8 +83,7 @@ public class ItemCursedLasso extends Item {
             return false;
         }
 
-        String entityId = item.stackTagCompound.getCompoundTag("entity").getString("id");
-        Entity entityToSpawn = EntityList.createEntityByName(entityId, world);
+        Entity entityToSpawn = EntityList.createEntityFromNBT(item.stackTagCompound.getCompoundTag("entity"),world);
 
         Block blk = world.getBlock(x,y,z);
         if(blk == Blocks.clay && item.hasTagCompound()){
@@ -96,6 +95,7 @@ public class ItemCursedLasso extends Item {
         	    return true;
         	}
         }
+
         double spawnX = x + Facing.offsetsXForSide[facing] + 0.5;
         double spawnY = y + Facing.offsetsYForSide[facing];
         double spawnZ = z + Facing.offsetsZForSide[facing] + 0.5;
@@ -105,13 +105,16 @@ public class ItemCursedLasso extends Item {
         if(entityToSpawn instanceof EntitySlime) {
             ((EntitySlime) entityToSpawn).setSlimeSize(item.stackTagCompound.getCompoundTag("entity").getInteger("slimesize"));
         }
+
         if(entityToSpawn instanceof EntityZombie){
             if(item.stackTagCompound.getCompoundTag("entity").getBoolean("isBabyZombie"))
                 ((EntityZombie) entityToSpawn).setChild(true);
             else
                 ((EntityZombie) entityToSpawn).setChild(false);
         }
+
         entityToSpawn.setLocationAndAngles(spawnX, spawnY, spawnZ, world.rand.nextFloat() * 360.0F, 0);
+
         world.spawnEntityInWorld(entityToSpawn);
         if(entityToSpawn instanceof EntityLiving) {
             ((EntityLiving)entityToSpawn).playLivingSound();
@@ -129,6 +132,7 @@ public class ItemCursedLasso extends Item {
         }
         if(!player.capabilities.isCreativeMode)
             item.setTagCompound(null);
+
         return true;
     }
 
