@@ -11,7 +11,7 @@ import net.minecraft.item.Item;
 
 public class BlockEnderClay extends Block{
 
-	BlockEnderClay() {
+	public BlockEnderClay() {
 		super(Material.ground);
 		setBlockName("enderclay.enderclayblock");
 		setBlockTextureName("enderclay:enderclayblock");

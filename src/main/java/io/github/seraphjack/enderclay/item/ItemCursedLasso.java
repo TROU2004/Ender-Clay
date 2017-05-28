@@ -28,7 +28,7 @@ import io.github.seraphjack.enderclay.block.BlockLoader;
 import java.util.List;
 
 public class ItemCursedLasso extends Item {
-    ItemCursedLasso() {
+    public ItemCursedLasso() {
         setCreativeTab(CreativeTabs.tabTools);
         setUnlocalizedName("enderclay.cursed_lasso");
         setTextureName("enderclay:cursed_lasso");
@@ -63,7 +63,8 @@ public class ItemCursedLasso extends Item {
                 mainTag.setBoolean("isBabyZombie",entity.isChild());
             }
             item.getTagCompound().setTag("entity",mainTag);
-            player.setCurrentItemOrArmor(0, item);
+            if(!player.capabilities.isCreativeMode)
+                player.setCurrentItemOrArmor(0, item);
             entity.setDead();
             return true;
         }
@@ -88,10 +89,11 @@ public class ItemCursedLasso extends Item {
         Block blk = world.getBlock(x,y,z);
         if(blk == Blocks.clay && item.hasTagCompound()){
         	if(item.stackTagCompound.getCompoundTag("entity").getString("id").equals("Enderman")){
-        	item.setTagCompound(null);
-        	world.setBlock(x, y, z, BlockLoader.BlockEnderClay);
-        	player.triggerAchievement(AchievementLoader.balance);
-        	return true;
+        	    if(!player.capabilities.isCreativeMode)
+        	        item.setTagCompound(null);
+        	    world.setBlock(x, y, z, BlockLoader.BlockEnderClay);
+        	    player.triggerAchievement(AchievementLoader.balance);
+        	    return true;
         	}
         }
         double spawnX = x + Facing.offsetsXForSide[facing] + 0.5;
@@ -125,8 +127,8 @@ public class ItemCursedLasso extends Item {
             }
             riddenByEntity = riddenByEntity.riddenByEntity;
         }
-        item.setTagCompound(null);
-        player.setCurrentItemOrArmor(0, item);
+        if(!player.capabilities.isCreativeMode)
+            item.setTagCompound(null);
         return true;
     }
 
