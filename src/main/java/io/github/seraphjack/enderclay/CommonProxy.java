@@ -11,14 +11,15 @@ import io.github.seraphjack.enderclay.item.ItemLoader;
 public class CommonProxy {
 
     public void preInit(FMLPreInitializationEvent e) {
+        new ConfigLoader(e);
     	new ItemLoader();
     	new BlockLoader();
-    	new ConfigLoader(e);
     }
 
     public void init(FMLInitializationEvent e) {
         new CraftingLoader();
         new AchievementLoader();
+        ConfigLoader.logger().info("Balance Technology from FTB Beyond Loaded!");
     }
 
     public void posInit(FMLPostInitializationEvent e) {

@@ -5,7 +5,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "enderclay", name = "EnderClay", version = "1.0.5")
+@Mod(modid = "enderclay", name = "EnderClay", version = "1.0.6")
 public class EnderClay {
     @SidedProxy(clientSide="io.github.seraphjack.enderclay.ClientProxy",serverSide="io.github.seraphjack.enderclay.CommonProxy")
     public static CommonProxy proxy;
