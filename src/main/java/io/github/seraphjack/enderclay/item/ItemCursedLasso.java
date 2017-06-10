@@ -3,6 +3,7 @@ package io.github.seraphjack.enderclay.item;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import io.github.seraphjack.enderclay.achievement.AchievementLoader;
+import io.github.seraphjack.enderclay.common.ConfigLoader;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.BlockWall;
@@ -63,7 +64,7 @@ public class ItemCursedLasso extends Item {
                 mainTag.setBoolean("isBabyZombie",entity.isChild());
             }
             item.getTagCompound().setTag("entity",mainTag);
-            if(!player.capabilities.isCreativeMode)
+            if(!player.capabilities.isCreativeMode || !ConfigLoader.useNewFeature)
                 player.setCurrentItemOrArmor(0, item);
             entity.setDead();
             return true;
@@ -87,7 +88,7 @@ public class ItemCursedLasso extends Item {
 
         Block blk = world.getBlock(x,y,z);
         if(blk == Blocks.clay && item.hasTagCompound() && item.stackTagCompound.getCompoundTag("entity").getString("id").equals("Enderman")){
-            if(!player.capabilities.isCreativeMode)
+            if(!player.capabilities.isCreativeMode || !ConfigLoader.useNewFeature)
                 item.setTagCompound(null);
             world.setBlock(x, y, z, BlockLoader.BlockEnderClay);
             player.triggerAchievement(AchievementLoader.balance);
@@ -128,7 +129,7 @@ public class ItemCursedLasso extends Item {
             }
             riddenByEntity = riddenByEntity.riddenByEntity;
         }
-        if(!player.capabilities.isCreativeMode)
+        if(!player.capabilities.isCreativeMode || !ConfigLoader.useNewFeature)
             item.setTagCompound(null);
 
         return true;
