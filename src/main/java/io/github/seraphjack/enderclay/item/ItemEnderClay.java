@@ -13,8 +13,8 @@ import net.minecraft.util.StatCollector;
 public class ItemEnderClay extends Item{
 	public ItemEnderClay(){
 		setCreativeTab(CreativeTabs.tabMaterials);
-        setUnlocalizedName("enderclay.enderclay");
-        setTextureName("enderclay:enderclay");
+		setUnlocalizedName("enderclay.enderclay");
+		setTextureName("enderclay:enderclay");
 	}
 	
 	@Override
