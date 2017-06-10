@@ -86,14 +86,12 @@ public class ItemCursedLasso extends Item {
         Entity entityToSpawn = EntityList.createEntityFromNBT(item.stackTagCompound.getCompoundTag("entity"),world);
 
         Block blk = world.getBlock(x,y,z);
-        if(blk == Blocks.clay && item.hasTagCompound()){
-        	if(item.stackTagCompound.getCompoundTag("entity").getString("id").equals("Enderman")){
-        	    if(!player.capabilities.isCreativeMode)
-        	        item.setTagCompound(null);
-        	    world.setBlock(x, y, z, BlockLoader.BlockEnderClay);
-        	    player.triggerAchievement(AchievementLoader.balance);
-        	    return true;
-        	}
+        if(blk == Blocks.clay && item.hasTagCompound() && item.stackTagCompound.getCompoundTag("entity").getString("id").equals("Enderman")){
+            if(!player.capabilities.isCreativeMode)
+                item.setTagCompound(null);
+            world.setBlock(x, y, z, BlockLoader.BlockEnderClay);
+            player.triggerAchievement(AchievementLoader.balance);
+            return true;
         }
 
         double spawnX = x + Facing.offsetsXForSide[facing] + 0.5;
