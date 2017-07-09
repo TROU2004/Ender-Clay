@@ -22,6 +22,6 @@ public class CommonProxy {
         ConfigLoader.logger().info("Balance Technology from FTB Beyond Loaded!");
     }
 
-    public void posInit(FMLPostInitializationEvent e) {
+    public void postInit(FMLPostInitializationEvent e) {
     }
 }
