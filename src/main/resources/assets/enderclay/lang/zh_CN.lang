@@ -7,3 +7,6 @@ tile.enderclay.enderclayblock.display1=诅咒套索右击粘土块
 tile.enderclay.enderclayblock.display2=即可获得。
 achievement.enderclay.balance=真的平衡！
 achievement.enderclay.balance.desc=来自FTB Beyond的平衡科技。
+item.enderclay.infinity_star.name=无尽之星
+item.enderclay.infinity_clay.name=无尽粘土
+tile.enderclay.infinity_clay_block.name=无尽粘土块

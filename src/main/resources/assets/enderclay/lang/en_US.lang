@@ -1,7 +1,10 @@
 item.enderclay.cursed_lasso.name=Cursed Lasso
 tile.enderclay.enderclayblock.name=Ender Clay
+tile.enderclay.infinity_clay_block.name=Infinity Clay Block
 item.enderclay.enderclay.name=Ender Clay
 item.enderclay.enderclay.display=A balance technology from FTB Beyond.
+item.enderclay.infinity_star.name=Infinity Star
+item.enderclay.infinity_clay.name=Infinity Clay
 tile.enderclay.enderclayblock.display0=To get this, right click on
 tile.enderclay.enderclayblock.display1=a Clay Block with a Cursed
 tile.enderclay.enderclayblock.display2=Lasso with a captured enderman.
