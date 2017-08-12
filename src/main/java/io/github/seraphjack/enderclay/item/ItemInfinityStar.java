@@ -11,6 +11,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class ItemInfinityStar extends Item {
     public static Point[] ritual = {new Point(1, 0, 1), new Point(0, 0, 1), new Point(-1, 0, 1),
@@ -54,18 +55,28 @@ public class ItemInfinityStar extends Item {
     private boolean checkRitual(Point p, World world) {
         if (!(Point.getBlockByPoint(world, p) instanceof BlockEnderClay))
             return false;
-        Point point;
         for (Point aRitual : ritual) {
-            point = p.add(aRitual);
-            if (!Point.getBlockByPoint(world, point).getClass().getCanonicalName().equals(getRitualPart(aRitual)))
+            if (!checkRitualPart(world, p, aRitual))
                 return false;
         }
         return true;
     }
 
-    private String getRitualPart(Point point) {
-        if (point.getX() == 0 || point.getZ() == 0)
-            return ConfigLoader.ritualBlock1;
-        return ConfigLoader.ritualBlock2;
+    private boolean checkRitualPart(World world, Point p, Point ritual) {
+        int[] ids;
+
+        ids = OreDictionary.getOreIDs(new ItemStack(Point.getBlockByPoint(world, p.add(ritual))));
+        if (ritual.getX() == 0 || ritual.getZ() == 0) {
+            for (int oreID : ids) {
+                if (OreDictionary.getOreName(oreID).trim().equals(ConfigLoader.ritualBlock1))
+                    return true;
+            }
+        } else {
+            for (int oreID : ids) {
+                if (OreDictionary.getOreName(oreID).equals(ConfigLoader.ritualBlock2))
+                    return true;
+            }
+        }
+        return false;
     }
 }

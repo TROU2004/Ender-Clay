@@ -21,8 +21,8 @@ public class ConfigLoader {
         logger.info("I'm being create");
         logger.info("Loading Configuration.");
         useNewFeature = config.get(Configuration.CATEGORY_GENERAL,"useNewFeature",false,"If this is enable, lassos nbt won't change when you interact with lasso in creative mode").getBoolean();
-        ritualBlock1 = config.getString("ritualBlock1",Configuration.CATEGORY_GENERAL,"tile.blockVibrantium","the block of ritual");
-        ritualBlock2 = config.getString("ritualBlock2",Configuration.CATEGORY_GENERAL,"item.SC2:BlockStorage2","the block of ritual");
+        ritualBlock1 = config.getString("ritualBlock1",Configuration.CATEGORY_GENERAL,"blockDiamond","ritualBlock");
+        ritualBlock2 = config.getString("ritualBlock2",Configuration.CATEGORY_GENERAL,"blockGold","ritualBlock");
         config.save();
     }
 
