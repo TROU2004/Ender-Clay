@@ -54,17 +54,17 @@ public class ItemCursedLasso extends Item {
             NBTTagCompound mainTag = new NBTTagCompound();
             NBTTagCompound entityTag = new NBTTagCompound();
             entity.writeToNBT(entityTag);
-            mainTag.setFloat("health",entity.getHealth());
+            mainTag.setFloat("health", entity.getHealth());
             mainTag.setTag("data", entityTag);
             mainTag.setString("id", EntityList.getEntityString(entity));
             if (entity instanceof EntitySlime) {
                 mainTag.setInteger("slimesize", ((EntitySlime) entity).getSlimeSize());
             }
-            if(entity instanceof EntityZombie){
-                mainTag.setBoolean("isBabyZombie",entity.isChild());
+            if (entity instanceof EntityZombie) {
+                mainTag.setBoolean("isBabyZombie", entity.isChild());
             }
-            item.getTagCompound().setTag("entity",mainTag);
-            if(!player.capabilities.isCreativeMode || !ConfigLoader.useNewFeature)
+            item.getTagCompound().setTag("entity", mainTag);
+            if (!player.capabilities.isCreativeMode || !ConfigLoader.useNewFeature)
                 player.setCurrentItemOrArmor(0, item);
             entity.setDead();
             return true;
@@ -80,15 +80,15 @@ public class ItemCursedLasso extends Item {
         if (!item.hasTagCompound()) {
             return false;
         }
-        if(player == null) {
+        if (player == null) {
             return false;
         }
 
-        Entity entityToSpawn = EntityList.createEntityFromNBT(item.stackTagCompound.getCompoundTag("entity"),world);
+        Entity entityToSpawn = EntityList.createEntityFromNBT(item.stackTagCompound.getCompoundTag("entity"), world);
 
-        Block blk = world.getBlock(x,y,z);
-        if(blk == Blocks.clay && item.hasTagCompound() && item.stackTagCompound.getCompoundTag("entity").getString("id").equals("Enderman")){
-            if(!player.capabilities.isCreativeMode || !ConfigLoader.useNewFeature)
+        Block blk = world.getBlock(x, y, z);
+        if (blk == Blocks.clay && item.hasTagCompound() && item.stackTagCompound.getCompoundTag("entity").getString("id").equals("Enderman")) {
+            if (!player.capabilities.isCreativeMode || !ConfigLoader.useNewFeature)
                 item.setTagCompound(null);
             world.setBlock(x, y, z, BlockLoader.BlockEnderClay);
             player.triggerAchievement(AchievementLoader.balance);
@@ -98,15 +98,15 @@ public class ItemCursedLasso extends Item {
         double spawnX = x + Facing.offsetsXForSide[facing] + 0.5;
         double spawnY = y + Facing.offsetsYForSide[facing];
         double spawnZ = z + Facing.offsetsZForSide[facing] + 0.5;
-        if(facing == ForgeDirection.UP.ordinal() && (blk instanceof BlockFence || blk instanceof BlockWall)) {
+        if (facing == ForgeDirection.UP.ordinal() && (blk instanceof BlockFence || blk instanceof BlockWall)) {
             spawnY += 0.5;
         }
-        if(entityToSpawn instanceof EntitySlime) {
+        if (entityToSpawn instanceof EntitySlime) {
             ((EntitySlime) entityToSpawn).setSlimeSize(item.stackTagCompound.getCompoundTag("entity").getInteger("slimesize"));
         }
 
-        if(entityToSpawn instanceof EntityZombie){
-            if(item.stackTagCompound.getCompoundTag("entity").getBoolean("isBabyZombie"))
+        if (entityToSpawn instanceof EntityZombie) {
+            if (item.stackTagCompound.getCompoundTag("entity").getBoolean("isBabyZombie"))
                 ((EntityZombie) entityToSpawn).setChild(true);
             else
                 ((EntityZombie) entityToSpawn).setChild(false);
@@ -115,31 +115,31 @@ public class ItemCursedLasso extends Item {
         entityToSpawn.setLocationAndAngles(spawnX, spawnY, spawnZ, world.rand.nextFloat() * 360.0F, 0);
 
         world.spawnEntityInWorld(entityToSpawn);
-        if(entityToSpawn instanceof EntityLiving) {
-            ((EntityLiving)entityToSpawn).playLivingSound();
-            ((EntityLiving)entityToSpawn).setHealth(item.stackTagCompound.getCompoundTag("entity").getFloat("health"));
+        if (entityToSpawn instanceof EntityLiving) {
+            ((EntityLiving) entityToSpawn).playLivingSound();
+            ((EntityLiving) entityToSpawn).setHealth(item.stackTagCompound.getCompoundTag("entity").getFloat("health"));
         }
 
         Entity riddenByEntity = entityToSpawn.riddenByEntity;
-        while(riddenByEntity != null) {
+        while (riddenByEntity != null) {
             riddenByEntity.setLocationAndAngles(spawnX, spawnY, spawnZ, world.rand.nextFloat() * 360.0F, 0.0F);
             world.spawnEntityInWorld(riddenByEntity);
-            if(riddenByEntity instanceof EntityLiving) {
-                ((EntityLiving)riddenByEntity).playLivingSound();
+            if (riddenByEntity instanceof EntityLiving) {
+                ((EntityLiving) riddenByEntity).playLivingSound();
             }
             riddenByEntity = riddenByEntity.riddenByEntity;
         }
-        if(!player.capabilities.isCreativeMode || !ConfigLoader.useNewFeature)
+        if (!player.capabilities.isCreativeMode || !ConfigLoader.useNewFeature)
             item.setTagCompound(null);
 
         return true;
     }
 
     private String getMobTypeFromStack(ItemStack item) {
-        if(!item.hasTagCompound()) {
+        if (!item.hasTagCompound()) {
             return null;
         }
-        if(item.stackTagCompound == null) {
+        if (item.stackTagCompound == null) {
             return null;
         }
         return item.stackTagCompound.getCompoundTag("entity").getString("id");
@@ -153,9 +153,9 @@ public class ItemCursedLasso extends Item {
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
-        if(par1ItemStack != null) {
+        if (par1ItemStack != null) {
             String mobName = getMobTypeFromStack(par1ItemStack);
-            if(mobName != null) {
+            if (mobName != null) {
                 par3List.add(getDisplayNameForEntity(mobName));
             }
         }

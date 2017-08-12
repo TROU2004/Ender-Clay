@@ -3,7 +3,6 @@ package io.github.seraphjack.enderclay.item;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import io.github.seraphjack.enderclay.block.BlockEnderClay;
-import io.github.seraphjack.enderclay.block.BlockLoader;
 import io.github.seraphjack.enderclay.common.ConfigLoader;
 import io.github.seraphjack.enderclay.utils.Point;
 import net.minecraft.creativetab.CreativeTabs;
@@ -45,7 +44,7 @@ public class ItemInfinityStar extends Item {
                 world.setBlockToAir(point.getX(), point.getY(), point.getZ());
             }
             world.setBlockToAir(x, y, z);
-            EntityItem entityItem = new EntityItem(world, x, y + 1, z, new ItemStack(BlockLoader.BlockInfinityClay));
+            EntityItem entityItem = new EntityItem(world, x, y + 1, z, new ItemStack(ItemLoader.ItemInfinityClay));
             world.spawnEntityInWorld(entityItem);
             return true;
         }
@@ -58,7 +57,7 @@ public class ItemInfinityStar extends Item {
         Point point;
         for (Point aRitual : ritual) {
             point = p.add(aRitual);
-            if (!Point.getBlockByPoint(world, point).getUnlocalizedName().equals(getRitualPart(aRitual)))
+            if (!Point.getBlockByPoint(world, point).getClass().getCanonicalName().equals(getRitualPart(aRitual)))
                 return false;
         }
         return true;

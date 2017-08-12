@@ -10,7 +10,8 @@ public class ItemLoader {
     public static Item ItemEnderClay;
     public static Item ItemInfinityClay;
     public static Item ItemInfinityStar;
-    public ItemLoader(){
+
+    public ItemLoader() {
         ConfigLoader.logger().info("Loading Items.");
         ItemCursedLasso = new ItemCursedLasso();
         ItemEnderClay = new ItemEnderClay();
@@ -18,7 +19,7 @@ public class ItemLoader {
         ItemInfinityStar = new ItemInfinityStar();
         GameRegistry.registerItem(ItemCursedLasso, "cursed_lasso");
         GameRegistry.registerItem(ItemEnderClay, "itemenderclay");
-        GameRegistry.registerItem(ItemInfinityClay,"itemstarclay");
-        GameRegistry.registerItem(ItemInfinityStar,"itemclaystar");
+        GameRegistry.registerItem(ItemInfinityClay, "itemstarclay");
+        GameRegistry.registerItem(ItemInfinityStar, "itemclaystar");
     }
 }

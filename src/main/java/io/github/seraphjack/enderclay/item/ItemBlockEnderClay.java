@@ -1,7 +1,5 @@
 package io.github.seraphjack.enderclay.item;
 
-import java.util.List;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import io.github.seraphjack.enderclay.block.BlockLoader;
@@ -11,18 +9,20 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 
-public class ItemBlockEnderClay extends ItemBlock{
+import java.util.List;
 
-	public ItemBlockEnderClay(Block block) {
-		super(BlockLoader.BlockEnderClay);
-	}
+public class ItemBlockEnderClay extends ItemBlock {
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack,EntityPlayer player,List list,boolean advanced){
-		list.add(StatCollector.translateToLocal("tile.enderclay.enderclayblock.display0"));
-		list.add(StatCollector.translateToLocal("tile.enderclay.enderclayblock.display1"));
-		list.add(StatCollector.translateToLocal("tile.enderclay.enderclayblock.display2"));
-		super.addInformation(stack, player, list, advanced);
-	}
+    public ItemBlockEnderClay(Block block) {
+        super(BlockLoader.BlockEnderClay);
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean advanced) {
+        list.add(StatCollector.translateToLocal("tile.enderclay.enderclayblock.display0"));
+        list.add(StatCollector.translateToLocal("tile.enderclay.enderclayblock.display1"));
+        list.add(StatCollector.translateToLocal("tile.enderclay.enderclayblock.display2"));
+        super.addInformation(stack, player, list, advanced);
+    }
 }
